@@ -1,0 +1,16 @@
+{
+  "name": "problem_8_node-scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "startserver": "node server.js",
+    "test": "node test.js",
+    "hello": "node hello.js",
+    "welcome": "node script2.js",
+    "info": "node script3.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
