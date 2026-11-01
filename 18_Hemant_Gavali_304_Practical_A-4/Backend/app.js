@@ -15,19 +15,19 @@ app.use(session({
     saveUninitialized: true
 }));
 
-// MongoDB Connection
+
 mongoose.connect('mongodb://127.0.0.1:27017/computer_shop_db', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log('MongoDB Connected')).catch(err => console.log(err));
 
-// Middleware to check authentication
+
 const auth = (req, res, next) => {
     if (req.session.adminId) return next();
     res.redirect('/login');
 };
 
-// Routes
+
 app.get('/register', (req, res) => res.render('register', { error: null }));
 
 app.post('/register', async (req, res) => {
