@@ -1,0 +1,31 @@
+<h2>Add Computer Master Data</h2>
+<form method="POST" action="/computer/add">
+    <label>Computer ID:</label> <input type="text" name="compId" required><br>
+    <label>Model Name:</label> <input type="text" name="modelName" required><br>
+    
+    <label>Computer Type:</label>
+    <input type="radio" name="computerType" value="Assembled" required> Assembled
+    <input type="radio" name="computerType" value="Branded"> Branded<br>
+    
+    <label>Brand:</label>
+    <select name="brand" required>
+        <!-- Populated via PHP API -->
+        <% brands.forEach(brand => { %>
+            <option value="<%= brand.Brand_Name %>"><%= brand.Brand_Name %></option>
+        <% }) %>
+    </select><br>
+
+    <label>Processor:</label> <input type="text" name="processor" required><br>
+    <label>RAM (GB):</label> <input type="text" name="ram" required><br>
+    <label>Price:</label> <input type="number" name="price" required><br>
+    <label>Purchase Date:</label> <input type="date" name="purchaseDate" required><br>
+    
+    <label>Stock Status:</label>
+    <select name="stockStatus" required>
+        <option value="In Stock">In Stock</option>
+        <option value="Out of Stock">Out of Stock</option>
+    </select><br>
+
+    <button type="submit">Save Data</button>
+</form>
+<br><a href="/">Back to Home</a>

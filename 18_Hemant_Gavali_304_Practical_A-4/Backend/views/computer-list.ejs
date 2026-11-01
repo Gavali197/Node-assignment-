@@ -1,0 +1,37 @@
+<h2>Computer Master List</h2>
+
+<form method="GET" action="/computer/list">
+    <label>Filter by Type:</label>
+    <select name="type">
+        <option value="">All</option>
+        <option value="Assembled" <%= currentFilter === 'Assembled' ? 'selected' : '' %>>Assembled</option>
+        <option value="Branded" <%= currentFilter === 'Branded' ? 'selected' : '' %>>Branded</option>
+    </select>
+    <button type="submit">Filter</button>
+</form>
+
+<table border="1" cellpadding="10" style="margin-top: 15px;">
+    <tr>
+        <th>ID</th>
+        <th>Model</th>
+        <th>Type</th>
+        <th>Brand</th>
+        <th>Processor</th>
+        <th>RAM</th>
+        <th>Price</th>
+        <th>Status</th>
+    </tr>
+    <% computers.forEach(comp => { %>
+    <tr>
+        <td><%= comp.compId %></td>
+        <td><%= comp.modelName %></td>
+        <td><%= comp.computerType %></td>
+        <td><%= comp.brand %></td>
+        <td><%= comp.processor %></td>
+        <td><%= comp.ram %></td>
+        <td>$<%= comp.price %></td>
+        <td><%= comp.stockStatus %></td>
+    </tr>
+    <% }) %>
+</table>
+<br><a href="/">Back to Home</a>
